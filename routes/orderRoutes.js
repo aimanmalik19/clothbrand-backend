@@ -3,7 +3,7 @@ const router = express.Router();
 const { createOrder, getMyOrders, getAllOrders } = require('../controllers/orderController');
 const { protect } = require('../middleware/authMiddleware');
 
-router.post('/', protect, createOrder);
+router.post('/',  createOrder);
 router.get('/myorders', protect, getMyOrders);
 router.get('/', protect, getAllOrders);
 
