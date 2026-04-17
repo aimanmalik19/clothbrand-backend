@@ -4,13 +4,12 @@ const Order = require('../models/orderModel');
 const createOrder = async (req, res) => {
   try {
     const { products, totalPrice, address } = req.body;
-
-    const order = await Order.create({
-      user: req.user._id,
-      products,
-      totalPrice,
-      address
-    });
+const order = await Order.create({
+    user: req.user._id,
+    products,
+    totalPrice,
+    address
+});
 
     res.status(201).json(order);
   } catch (error) {
