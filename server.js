@@ -9,10 +9,12 @@ const orderRoutes = require('./routes/orderRoutes');
 
 
 const app = express();
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
-app.use(cors());
-app.options('*', cors());
-app.use(express.json());
 // MongoDB connect
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connect ho gaya! ✅'))
