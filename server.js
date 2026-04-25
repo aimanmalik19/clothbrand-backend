@@ -7,11 +7,12 @@ const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 
+
 const app = express();
 
 app.use(cors());
+app.options('*', cors());
 app.use(express.json());
-
 // MongoDB connect
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connect ho gaya! ✅'))
